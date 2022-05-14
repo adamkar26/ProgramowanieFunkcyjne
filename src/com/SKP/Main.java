@@ -19,9 +19,22 @@ public class Main {
        // check();
        // lambda();
        // SortingString.sort();
-        humanCreator();
+       // humanCreator();
+        objectCreator();
 
 
+    }
+
+    private static void objectCreator() {
+        Supplier<Object> objectCreator = Object::new;
+        Object objectInstance = objectCreator.get();
+        System.out.println(objectInstance);
+
+        BiPredicate<Object, Object> equalsMethodOnClass = Object::equals;
+        System.out.println(equalsMethodOnClass.test(objectInstance, new Object()));
+
+        Predicate<Object> equalsMethodOnObject = objectInstance::equals;
+        System.out.println(equalsMethodOnObject.test(new Object()));
     }
 
     private static void humanCreator(){
